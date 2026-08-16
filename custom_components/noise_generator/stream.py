@@ -143,11 +143,21 @@ class NoiseStreamManager:
 
         handle = await self._create_process_handle(profile)
 
+        # Static icy-* headers so Shoutcast/Icecast-aware players (Sonos,
+        # Music Assistant, etc.) show a real name instead of falling back
+        # to the raw request URL. This is a raw WAV stream, not MP3, so we
+        # can't do the full interleaved-metadata ICY protocol (that would
+        # corrupt the audio) - these advisory headers are safe since they
+        # don't touch the byte stream at all.
+        icy_name = profile.name.replace("\r", "").replace("\n", "")
         response = web.StreamResponse(
             status=200,
             headers={
                 "Content-Type": MEDIA_MIME_TYPE,
                 "Cache-Control": "no-store",
+                "icy-name": icy_name,
+                "icy-genre": "Noise Generator",
+                "icy-pub": "0",
             },
         )
         response.enable_chunked_encoding()
