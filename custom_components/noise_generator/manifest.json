@@ -1,7 +1,7 @@
 {
   "domain": "noise_generator",
   "name": "Noise Generator",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "config_flow": true,
   "documentation": "https://example.com/noise-generator",
   "requirements": [],
