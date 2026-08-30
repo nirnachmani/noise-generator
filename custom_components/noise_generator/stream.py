@@ -8,6 +8,7 @@ import json
 import logging
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 from urllib.parse import quote
 
@@ -210,6 +211,11 @@ class NoiseStreamManager:
     async def _launch_process(self, profile: NoiseStreamProfile) -> asyncio.subprocess.Process:
         """Launch the subprocess that produces streaming audio."""
 
+        # Home Assistant can load custom integrations without adding the
+        # configuration directory to the child interpreter's import path.
+        # Running from the directory that contains ``custom_components`` makes
+        # this module invocation work independently of HA's launch directory.
+        config_dir = Path(__file__).resolve().parents[2]
         params = dict(profile.definition[CONF_PROFILE_PARAMETERS])
         profile_type = profile.definition.get(CONF_PROFILE_TYPE, DEFAULT_PROFILE_TYPE)
         profile_subtype = profile.definition.get(CONF_PROFILE_SUBTYPE, DEFAULT_PROFILE_SUBTYPE)
@@ -244,6 +250,7 @@ class NoiseStreamManager:
 
         return await asyncio.create_subprocess_exec(
             *args,
+            cwd=config_dir,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
