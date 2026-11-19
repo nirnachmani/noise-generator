@@ -1,11 +1,12 @@
 {
   "domain": "noise_generator",
   "name": "Noise Generator",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "config_flow": true,
-  "documentation": "https://example.com/noise-generator",
+  "documentation": "https://github.com/nirnachmani/noise-generator",
+  "issue_tracker": "https://github.com/nirnachmani/noise-generator/issues",
   "requirements": [],
-  "codeowners": ["@your-github"],
+  "codeowners": ["@nirnachmani"],
   "iot_class": "local_push",
   "integration_type": "service"
 }

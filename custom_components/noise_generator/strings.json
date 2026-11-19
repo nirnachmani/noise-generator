@@ -19,7 +19,7 @@
           "custom_low_cutoff": "Custom low cutoff (Hz)",
           "custom_high_cutoff": "Custom high cutoff (Hz)"
         }
-      }
+      },
       "user_tonal": {
         "title": "Tune custom tonal sound",
         "description": "Shape the waveform, pitch, and envelope for your tonal profile.",
