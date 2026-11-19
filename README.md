@@ -19,7 +19,15 @@ Noise Generator is a custom integration that synthesizes continuous audio entire
 
 ## Installation
 
-### HACS (recommended)
+### Marketplace (Home Assistant 2026.11 and later)
+
+1. Open **Settings → Marketplace** and connect your GitHub account if prompted. Custom repositories require a GitHub connection.
+2. Select **Add from link**, enter `https://github.com/nirnachmani/noise-generator`, and choose **Integration** if prompted.
+3. Install **Noise Generator** and follow its setup flow. If it does not open automatically, go to **Settings → Devices & Services → Add Integration** and search for **Noise Generator**.
+
+Marketplace replaces HACS starting with Home Assistant 2026.11. Existing HACS installations migrate automatically. Follow any restart prompt when updating an installed integration.
+
+### HACS (Home Assistant 2026.10 and earlier)
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=nirnachmani&repository=noise-generator&category=Integration)
 
